@@ -17,17 +17,15 @@ def HBNB():
 
 
 @app.route('/c/<text>')
-def text_replace(text):
+def cisfun(text):
     ''' display text'''
     return 'C ' + text.replace('_', ' ')
 
 
-@app.route('Python')
-@app.route('/python/<text>')
-def py_replace(text=None):
+@app.route('/python', strict_slashes)
+@app.route('/python/<text>', strict_slashes=False)
+def pythoniscool(text='is cool'):
     '''display text'''
-    if text is None:
-        return 'Python is cool'
     return 'Python ' + text.replace('_', ' ')
 
 if __name__ == '__main__':
